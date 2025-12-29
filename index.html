@@ -45,6 +45,21 @@ h1 { text-align:center; margin-bottom: 30px; }
   margin-bottom: 5px;
   display: block;
 }
+
+/* Footer-tyylit */
+footer {
+  margin-top: 30px;
+  text-align: center;
+  font-size: 1.1em;
+}
+footer a {
+  text-decoration: none;
+  color: #1a73e8;
+  font-weight: bold;
+}
+footer a:hover {
+  text-decoration: underline;
+}
 </style>
 </head>
 <body>
@@ -62,6 +77,10 @@ h1 { text-align:center; margin-bottom: 30px; }
     <div id="kalpa">Ladataan...</div>
   </div>
 </div>
+
+<footer>
+  👉 <a href="https://bit.ly/kupskalpa" target="_blank">https://bit.ly/kupskalpa</a>
+</footer>
 
 <script>
 fetch("matches.json")
