@@ -87,7 +87,11 @@ fetch("matches.json")
       upcoming.forEach(m => {
         const div = document.createElement("div");
         div.className = "match";
-        div.innerHTML = `<span class="date">${m.dateObj.toLocaleString("fi-FI")}</span>
+
+        const dateStr = m.dateObj.toLocaleDateString("fi-FI") + " " +
+                        m.dateObj.toLocaleTimeString("fi-FI", {hour: '2-digit', minute:'2-digit'});
+
+        div.innerHTML = `<span class="date">${dateStr}</span>
                          <div>${m.home} – ${m.away}</div>`;
         container.appendChild(div);
       });
