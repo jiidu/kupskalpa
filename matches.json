@@ -1,0 +1,12 @@
+{
+  "kups": [
+    {"home": "KuPS", "away": "IF Gnistan", "date": "2026-04-11T15:00:00"},
+    {"home": "KuPS", "away": "AC Oulu", "date": "2026-04-22T18:00:00"},
+    {"home": "KuPS", "away": "HJK", "date": "2026-04-26T16:00:00"}
+  ],
+  "kalpa": [
+    {"home": "KalPa", "away": "Pelicans", "date": "2026-01-03T18:30:00"},
+    {"home": "HIFK", "away": "KalPa", "date": "2026-01-07T18:30:00"},
+    {"home": "KalPa", "away": "Sport", "date": "2026-01-09T18:30:00"}
+  ]
+}
