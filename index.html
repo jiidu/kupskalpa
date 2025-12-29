@@ -2,7 +2,7 @@
 <html lang="fi">
 <head>
 <meta charset="UTF-8">
-<title>KuPS & KalPa – Tulevat pelit</title>
+<title>KuPS & KalPa – Seuraavat pelit</title>
 <style>
 body { font-family: Arial; background:#f5f5f5; padding:20px; }
 h1 { text-align:center; }
@@ -14,7 +14,7 @@ h1 { text-align:center; }
 </head>
 <body>
 
-<h1>Tulevat pelit</h1>
+<h1>Seuraavat pelit</h1>
 
 <div class="team">
   <h2>⚽ KuPS</h2>
@@ -30,19 +30,35 @@ h1 { text-align:center; }
 fetch("matches.json")
   .then(res => res.json())
   .then(data => {
-    function render(containerId, matches){
-      const el = document.getElementById(containerId);
-      el.innerHTML = "";
-      matches.forEach(m => {
+    const now = new Date();
+
+    function renderNextMatches(containerId, matches, count=3){
+      const container = document.getElementById(containerId);
+      container.innerHTML = "";
+
+      // Suodatetaan tulevat pelit
+      const upcoming = matches
+        .map(m => ({...m, dateObj: new Date(m.date)}))
+        .filter(m => m.dateObj >= now)
+        .sort((a,b) => a.dateObj - b.dateObj)
+        .slice(0, count);
+
+      if (upcoming.length === 0){
+        container.innerText = "Ei lähiaikoina pelejä.";
+        return;
+      }
+
+      upcoming.forEach(m => {
         const div = document.createElement("div");
         div.className = "match";
-        div.innerHTML = `<div class="date">${new Date(m.date).toLocaleString("fi-FI")}</div>
+        div.innerHTML = `<div class="date">${m.dateObj.toLocaleString("fi-FI")}</div>
                          <div>${m.home} – ${m.away}</div>`;
-        el.appendChild(div);
+        container.appendChild(div);
       });
     }
-    render("kups", data.kups);
-    render("kalpa", data.kalpa);
+
+    renderNextMatches("kups", data.kups);
+    renderNextMatches("kalpa", data.kalpa);
   })
   .catch(e => console.error("JSON fetch error:", e));
 </script>
