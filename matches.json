@@ -1,9 +1,9 @@
 {
   "kups": [
     {"home": "KuPS", "away": "VPS (Liigacup)", "date": "2026-01-31T13:00:00"},
-    {"home": "Ilves (Liigacup)", "away": "KuPS", "date": "2026-01-31T13:45:00"},
-    {"home": "FF Jaro (Liigacup)", "away": "KuPS", "date": "2026-02-07T14:30:00"},
-    {"home": "AC Oulu (Liigacup)", "away": "KuPS", "date": "2026-02-14T15:00:00"},
+    {"home": "Ilves", "away": "KuPS (Liigacup)", "date": "2026-01-31T13:45:00"},
+    {"home": "FF Jaro", "away": "KuPS (Liigacup)", "date": "2026-02-07T14:30:00"},
+    {"home": "AC Oulu", "away": "KuPS" (Liigacup), "date": "2026-02-14T15:00:00"},
     {"home": "KuPS", "away": "Ilves (Liigacup)", "date": "2026-02-18T13:00:00"},
     {"home": "Ilves", "away": "KuPS", "date": "2026-04-04T18:30:00"},
     {"home": "KuPS", "away": "IF Gnistan", "date": "2026-04-11T15:00:00"},
