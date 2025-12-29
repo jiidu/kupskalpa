@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta charset="UTF-8">
+<title>KuPS & KalPa – Tulevat pelit</title>
+<style>
+body { font-family: Arial; background:#f5f5f5; padding:20px; }
+h1 { text-align:center; }
+.team { background:#fff; padding:15px; margin:20px 0; border-radius:8px; box-shadow:0 2px 5px rgba(0,0,0,0.1);}
+.match { border-bottom:1px solid #ddd; padding:6px 0; }
+.match:last-child { border-bottom:none; }
+.date { font-weight:bold; }
+</style>
+</head>
+<body>
+
+<h1>Tulevat pelit</h1>
+
+<div class="team">
+  <h2>⚽ KuPS</h2>
+  <div id="kups">Ladataan...</div>
+</div>
+
+<div class="team">
+  <h2>🏒 KalPa</h2>
+  <div id="kalpa">Ladataan...</div>
+</div>
+
+<script>
+fetch("matches.json")
+  .then(res => res.json())
+  .then(data => {
+    function render(containerId, matches){
+      const el = document.getElementById(containerId);
+      el.innerHTML = "";
+      matches.forEach(m => {
+        const div = document.createElement("div");
+        div.className = "match";
+        div.innerHTML = `<div class="date">${new Date(m.date).toLocaleString("fi-FI")}</div>
+                         <div>${m.home} – ${m.away}</div>`;
+        el.appendChild(div);
+      });
+    }
+    render("kups", data.kups);
+    render("kalpa", data.kalpa);
+  })
+  .catch(e => console.error("JSON fetch error:", e));
+</script>
+
+</body>
+</html>
