@@ -26,11 +26,11 @@
     {"home": "KuPS", "away": "IFK Mariehamn", "date": "2026-08-22T18:30:00"},
     {"home": "FC Inter", "away": "KuPS", "date": "2026-08-31T18:30:00"}
   ],
-  "kalpa": [
-    {"home": "KalPa", "away": "Pelicans", "date": "2026-01-03T18:30:00"},
-    {"home": "HIFK", "away": "KalPa", "date": "2026-01-07T18:30:00"},
+   "kalpa": [
+    {"home": "KalPa", "away": "Pelicans", "date": "2026-01-03T15:00:00"},
+    {"home": "HIFK", "away": "KalPa", "date": "2026-01-07T16:30:00"},
     {"home": "KalPa", "away": "Sport", "date": "2026-01-09T18:30:00"},
-    {"home": "JYP", "away": "KalPa", "date": "2026-01-10T18:30:00"},
+    {"home": "JYP", "away": "KalPa", "date": "2026-01-10T17:00:00"},
     {"home": "K-Espoo", "away": "KalPa", "date": "2026-01-14T18:30:00"},
     {"home": "Pelicans", "away": "KalPa", "date": "2026-01-16T18:30:00"},
     {"home": "KalPa", "away": "HPK", "date": "2026-01-22T18:30:00"},
