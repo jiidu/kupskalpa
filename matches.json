@@ -1,5 +1,9 @@
 {
   "kups": [
+    {"home": "KuPS", "away": "VPS (Liigacup)", "date": "2026-01-31T13:00:00"},
+    {"home": "FF Jaro", "away": "KuPS (Liigacup)", "date": "2026-02-07T14:30:00"},
+    {"home": "AC Oulu", "away": "KuPS (Liigacup)", "date": "2026-02-14T15:00:00"},
+    {"home": "KuPS", "away": "Ilves (Liigacup)", "date": "2026-02-18T13:00:00"},
     {"home": "Ilves", "away": "KuPS", "date": "2026-04-04T18:30:00"},
     {"home": "KuPS", "away": "IF Gnistan", "date": "2026-04-11T15:00:00"},
     {"home": "FF Jaro", "away": "KuPS", "date": "2026-04-18T16:00:00"},
@@ -23,16 +27,6 @@
     {"home": "FC Inter", "away": "KuPS", "date": "2026-08-31T18:30:00"}
   ],
   "kalpa": [
-    {"home": "SaiPa", "away": "KalPa", "date": "2025-09-10T18:30:00"},
-    {"home": "KalPa", "away": "Tappara", "date": "2025-09-13T18:30:00"},
-    {"home": "JYP", "away": "KalPa", "date": "2025-12-05T18:30:00"},
-    {"home": "KooKoo", "away": "KalPa", "date": "2025-12-10T18:30:00"},
-    {"home": "KalPa", "away": "SaiPa", "date": "2025-12-12T18:30:00"},
-    {"home": "HPK", "away": "KalPa", "date": "2025-12-13T18:30:00"},
-    {"home": "KalPa", "away": "KooKoo", "date": "2025-12-19T18:30:00"},
-    {"home": "KooKoo", "away": "KalPa", "date": "2025-12-20T18:30:00"},
-    {"home": "SaiPa", "away": "KalPa", "date": "2025-12-26T18:30:00"},
-    {"home": "KalPa", "away": "SaiPa", "date": "2025-12-27T18:30:00"},
     {"home": "KalPa", "away": "Pelicans", "date": "2026-01-03T18:30:00"},
     {"home": "HIFK", "away": "KalPa", "date": "2026-01-07T18:30:00"},
     {"home": "KalPa", "away": "Sport", "date": "2026-01-09T18:30:00"},
