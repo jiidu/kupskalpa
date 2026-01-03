@@ -131,10 +131,11 @@ function renderNextMatches(containerId, matchesArr, count=3){
                         m.dateObj.toLocaleTimeString("fi-FI", {hour:'2-digit', minute:'2-digit'});
 
         const diffDays = getDaysLeft(m.dateObj);
+        const diffText = diffDays === 0 ? "Tänään" : `${diffDays} päivän päästä`;
 
         div.innerHTML = `<span class="date">${dateStr}</span>
                          <div>${m.home} – ${m.away}</div>
-                         <div class="match-days">${diffDays} päivän päästä</div>`;
+                         <div class="match-days">${diffText}</div>`;
         container.appendChild(div);
     });
 }
