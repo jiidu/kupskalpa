@@ -130,7 +130,7 @@ function renderNextMatches(containerId, matchesArr, count=3){
         const dateStr = m.dateObj.toLocaleDateString("fi-FI") + " " +
                         m.dateObj.toLocaleTimeString("fi-FI", {hour:'2-digit', minute:'2-digit'});
 
-        const diffDays = getDaysLeft(m.dateObj);
+        const diffDays = Math.round(getDaysLeft(m.dateObj));
         const diffText = diffDays === 0 ? "Tänään" : `${diffDays} päivän päästä`;
 
         div.innerHTML = `<span class="date">${dateStr}</span>
