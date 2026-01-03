@@ -121,8 +121,13 @@ function renderNextMatches(containerId, matchesArr, count=3){
     const dateStr = m.dateObj.toLocaleDateString("fi-FI") + " " +
                     m.dateObj.toLocaleTimeString("fi-FI", {hour:'2-digit', minute:'2-digit'});
 
-    const diffTime = m.dateObj - now;
-    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    const diffTime = targetDate.getTime() - new Date().getTime();
+    let diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    
+    // Jos targetDate on tänään, aseta diffDays = 0
+    if (diffDays > 0 && new Date().toDateString() === targetDate.toDateString()) {
+        diffDays = 0;
+    }
 
     div.innerHTML = `<span class="date">${dateStr}</span>
                      <div>${m.home} – ${m.away}</div>
