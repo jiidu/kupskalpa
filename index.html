@@ -97,57 +97,60 @@ footer a:hover {
 </footer>
 
 <script>
-const now = new Date();
+// Palauttaa erotuksen päivinä: 0 = tänään, 1 = huomenna jne.
+function getDaysLeft(targetDate) {
+    const today = new Date();
+    const todayMidnight = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+    const targetMidnight = new Date(targetDate.getFullYear(), targetDate.getMonth(), targetDate.getDate());
+
+    const diffTime = targetMidnight - todayMidnight; // millisekunteina
+    return diffTime / (1000 * 60 * 60 * 24);
+}
 
 function renderNextMatches(containerId, matchesArr, count=3){
-  const container = document.getElementById(containerId);
-  container.innerHTML = "";
+    const container = document.getElementById(containerId);
+    container.innerHTML = "";
 
-  const upcoming = matchesArr
-    .map(m => ({...m, dateObj: new Date(m.date)}))
-    .filter(m => m.dateObj >= now)
-    .sort((a,b) => a.dateObj - b.dateObj)
-    .slice(0, count);
+    const now = new Date();
+    const upcoming = matchesArr
+        .map(m => ({...m, dateObj: new Date(m.date)}))
+        .filter(m => m.dateObj >= now)
+        .sort((a,b) => a.dateObj - b.dateObj)
+        .slice(0, count);
 
-  if (upcoming.length === 0){
-    container.innerText = "Ei lähiaikoina pelejä.";
-    return;
-  }
-
-  upcoming.forEach(m => {
-    const div = document.createElement("div");
-    div.className = "match";
-
-    const dateStr = m.dateObj.toLocaleDateString("fi-FI") + " " +
-                    m.dateObj.toLocaleTimeString("fi-FI", {hour:'2-digit', minute:'2-digit'});
-
-    const diffTime = targetDate.getTime() - new Date().getTime();
-    let diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-    
-    // Jos targetDate on tänään, aseta diffDays = 0
-    if (diffDays > 0 && new Date().toDateString() === targetDate.toDateString()) {
-        diffDays = 0;
+    if (upcoming.length === 0){
+        container.innerText = "Ei lähiaikoina pelejä.";
+        return;
     }
 
-    div.innerHTML = `<span class="date">${dateStr}</span>
-                     <div>${m.home} – ${m.away}</div>
-                     <div class="match-days">${diffDays} päivän päästä</div>`;
-    container.appendChild(div);
-  });
+    upcoming.forEach(m => {
+        const div = document.createElement("div");
+        div.className = "match";
+
+        const dateStr = m.dateObj.toLocaleDateString("fi-FI") + " " +
+                        m.dateObj.toLocaleTimeString("fi-FI", {hour:'2-digit', minute:'2-digit'});
+
+        const diffDays = getDaysLeft(m.dateObj);
+
+        div.innerHTML = `<span class="date">${dateStr}</span>
+                         <div>${m.home} – ${m.away}</div>
+                         <div class="match-days">${diffDays} päivän päästä</div>`;
+        container.appendChild(div);
+    });
 }
 
 // Hae ottelut matches.json -tiedostosta
 fetch("matches.json")
-  .then(res => res.json())
-  .then(data => {
-    renderNextMatches("kups", data.kups);
-    renderNextMatches("kalpa", data.kalpa);
-  })
-  .catch(e => {
-    console.error("JSON fetch error:", e);
-    document.getElementById("kups").innerText = "Ottelutiedot ei saatavilla.";
-    document.getElementById("kalpa").innerText = "Ottelutiedot ei saatavilla.";
-  });
+    .then(res => res.json())
+    .then(data => {
+        renderNextMatches("kups", data.kups);
+        renderNextMatches("kalpa", data.kalpa);
+    })
+    .catch(e => {
+        console.error("JSON fetch error:", e);
+        document.getElementById("kups").innerText = "Ottelutiedot ei saatavilla.";
+        document.getElementById("kalpa").innerText = "Ottelutiedot ei saatavilla.";
+    });
 </script>
 
 </body>
